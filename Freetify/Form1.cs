@@ -1,3 +1,5 @@
+using Google.Apis.Download;
+using Google.Apis.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,22 +24,14 @@ namespace Freetify
             InitializeComponent();
         }
 
-        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void Shuffle_Click(object sender, EventArgs e)
         {
-            // Click on the link below to continue learning how to build a desktop app using WinForms!
-            System.Diagnostics.Process.Start("http://aka.ms/dotnet-get-started-desktop");
-
+            DriveUtils.PlaySong();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        { 
-            _httpClient = new HttpClient();
-            _httpClient.GetAsync("THE SONG");
-        }
-
-        private void HelloWorldLabel_Click(object sender, EventArgs e)
+        static void Download_ProgressChanged(IDownloadProgress progress)
         {
-
+            Console.WriteLine(progress.Status + " " + progress.BytesDownloaded);
         }
     }
 }
