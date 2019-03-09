@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Freetify.Properties
+namespace DStrm.Properties
 {
 
 
