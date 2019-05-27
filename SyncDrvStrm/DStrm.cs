@@ -34,5 +34,21 @@ namespace DStrm
             Thread.Sleep(100);
             SendKeys.Send("{ENTER}");
         }
+
+        private void DStrm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void debugInstructionsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void retry_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Focus();
+            SendKeys.Send("{ENTER}");
+        }
     }
 }
