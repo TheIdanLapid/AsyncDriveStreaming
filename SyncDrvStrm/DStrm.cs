@@ -1,22 +1,12 @@
-using Google.Apis.Download;
-using Google.Apis.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DStrm
 {
     public partial class DStrm : Form
     {
-        private HttpClient _httpClient;
+        //private HttpClient _httpClient;
         public DStrm()
         {
             InitializeComponent();
@@ -37,12 +27,7 @@ namespace DStrm
 
         private void DStrm_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void debugInstructionsLabel_Click(object sender, EventArgs e)
-        {
-
+            webBrowser1.Focus();
         }
 
         private void retry_Click(object sender, EventArgs e)
