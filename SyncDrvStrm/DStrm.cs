@@ -47,6 +47,7 @@ namespace DStrm
 
         private void retry_Click(object sender, EventArgs e)
         {
+            Thread.Sleep(500);
             webBrowser1.Focus();
             SendKeys.Send("{ENTER}");
         }

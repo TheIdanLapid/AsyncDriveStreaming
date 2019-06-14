@@ -37,7 +37,7 @@ namespace DStrm
             // debugInstructionsLabel
             // 
             this.debugInstructionsLabel.AutoSize = true;
-            this.debugInstructionsLabel.Location = new System.Drawing.Point(144, 61);
+            this.debugInstructionsLabel.Location = new System.Drawing.Point(11, 24);
             this.debugInstructionsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.debugInstructionsLabel.Name = "debugInstructionsLabel";
             this.debugInstructionsLabel.Size = new System.Drawing.Size(16, 13);
@@ -47,11 +47,12 @@ namespace DStrm
             // 
             // Shuffle
             // 
-            this.Shuffle.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Shuffle.Location = new System.Drawing.Point(31, 107);
-            this.Shuffle.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Shuffle.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.Shuffle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Shuffle.Location = new System.Drawing.Point(9, 107);
+            this.Shuffle.Margin = new System.Windows.Forms.Padding(0);
             this.Shuffle.Name = "Shuffle";
-            this.Shuffle.Size = new System.Drawing.Size(80, 40);
+            this.Shuffle.Size = new System.Drawing.Size(93, 40);
             this.Shuffle.TabIndex = 2;
             this.Shuffle.Text = "Shuffle";
             this.Shuffle.UseVisualStyleBackColor = false;
@@ -59,23 +60,24 @@ namespace DStrm
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(68, 188);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowser1.Location = new System.Drawing.Point(9, 164);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(15, 16);
+            this.webBrowser1.Size = new System.Drawing.Size(356, 66);
             this.webBrowser1.TabIndex = 3;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Location = new System.Drawing.Point(233, 112);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.button1.Name = "Retry";
-            this.button1.Size = new System.Drawing.Size(80, 40);
+            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
+            this.button1.Location = new System.Drawing.Point(262, 107);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 40);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Retry";
+            this.button1.Text = "PLAY | PAUSE";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.retry_Click);
             // 
@@ -88,7 +90,7 @@ namespace DStrm
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.Shuffle);
             this.Controls.Add(this.debugInstructionsLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DStrm";
             this.Text = "DStrm";
             this.Load += new System.EventHandler(this.DStrm_Load);
