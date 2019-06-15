@@ -1,0 +1,846 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.props" Condition="Exists('packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{64266730-D9A6-4030-ACE5-E2F9E261806C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>WindowsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>DRVS</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>60781FBD148C95EFDAA2422CE4ECC6EE1D1EA215</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DRVS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Gherkin, Version=6.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
+      <HintPath>packages\Gherkin.6.0.0\lib\net45\Gherkin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.40.2\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.40.2\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.40.2\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.40.2\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.40.2.1610, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Drive.v3.1.40.2.1610\lib\net40\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.40.2.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.40.2\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TechTalk.SpecFlow, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.3.0.220\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow.MSTest.SpecFlowPlugin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.MsTest.3.0.220\lib\net45\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Utf8Json, Version=1.3.7.0, Culture=neutral, PublicKeyToken=8a73d3ba7e392e27, processorArchitecture=MSIL">
+      <HintPath>packages\Utf8Json.1.3.7\lib\net45\Utf8Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <HintPath>packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\BoDi.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\BoDi.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Castle.Core.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Castle.Core.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Freetify.exe" />
+    <Content Include="SyncDrvStrm\bin\Debug\Freetify.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Gherkin.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Auth.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Auth.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Auth.PlatformServices.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Auth.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Core.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Core.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Core.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Drive.v3.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Drive.v3.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.Drive.v3.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.PlatformServices.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Google.Apis.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\Microsoft.Win32.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\netstandard.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\SpecFlowSharedSteps.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.AppContext.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Collections.Concurrent.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Collections.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Collections.NonGeneric.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Collections.Specialized.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.ComponentModel.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.ComponentModel.EventBasedAsync.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.ComponentModel.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.ComponentModel.TypeConverter.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Console.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Data.Common.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.Contracts.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.Debug.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.Process.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.StackTrace.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.TextWriterTraceListener.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.Tools.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.TraceSource.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Diagnostics.Tracing.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Drawing.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Dynamic.Runtime.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Globalization.Calendars.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Globalization.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Globalization.Extensions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.Compression.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.Compression.ZipFile.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.FileSystem.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.FileSystem.Watcher.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.IsolatedStorage.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.MemoryMappedFiles.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.Pipes.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.IO.UnmanagedMemoryStream.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Linq.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Linq.Expressions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Linq.Parallel.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Linq.Queryable.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.Http.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.NameResolution.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.NetworkInformation.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.Ping.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.Requests.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.Security.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.Sockets.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.WebHeaderCollection.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.WebSockets.Client.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Net.WebSockets.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.ObjectModel.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Reflection.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Reflection.Extensions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Reflection.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Resources.Reader.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Resources.ResourceManager.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Resources.Writer.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.CompilerServices.VisualC.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Extensions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Handles.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.InteropServices.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Numerics.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Serialization.Formatters.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Serialization.Json.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Serialization.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Runtime.Serialization.Xml.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Claims.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Cryptography.Csp.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.Principal.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Security.SecureString.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Text.Encoding.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Text.Encoding.Extensions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Text.RegularExpressions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Overlapped.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Tasks.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Tasks.Parallel.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Thread.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.ThreadPool.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Threading.Timer.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Xml.ReaderWriter.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Xml.XDocument.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Xml.XmlDocument.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Xml.XmlSerializer.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Xml.XPath.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\System.Xml.XPath.XDocument.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\TechTalk.SpecFlow.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\TechTalk.SpecFlow.pdb" />
+    <Content Include="SyncDrvStrm\bin\Debug\Utf8Json.dll" />
+    <Content Include="SyncDrvStrm\bin\Debug\Utf8Json.xml" />
+    <Content Include="SyncDrvStrm\DStrm.csproj" />
+    <Content Include="SyncDrvStrm\DStrm.sln" />
+    <Content Include="SyncDrvStrm\obj\Debug\DStrm.csproj.FileListAbsolute.txt" />
+    <Content Include="SyncDrvStrm\obj\Debug\Freetify.exe" />
+    <Content Include="SyncDrvStrm\obj\Debug\Freetify.pdb" />
+    <Content Include="SyncDrvStrm\packages\BoDi.1.4.1\lib\net45\BoDi.dll" />
+    <Content Include="SyncDrvStrm\packages\BoDi.1.4.1\lib\net45\BoDi.pdb" />
+    <Content Include="SyncDrvStrm\packages\BoDi.1.4.1\lib\netstandard2.0\BoDi.dll" />
+    <Content Include="SyncDrvStrm\packages\BoDi.1.4.1\lib\netstandard2.0\BoDi.pdb" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\ASL - Apache Software Foundation License.txt" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\BreakingChanges.txt" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\Changes.txt" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\net35\Castle.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\net35\Castle.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\sl4\Castle.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\sl4\Castle.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\sl5\Castle.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\lib\sl5\Castle.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\License.txt" />
+    <Content Include="SyncDrvStrm\packages\Castle.Core.3.2.0\readme.txt" />
+    <Content Include="SyncDrvStrm\packages\Gherkin.6.0.0\lib\net45\Gherkin.dll" />
+    <Content Include="SyncDrvStrm\packages\Gherkin.6.0.0\lib\netstandard2.0\Gherkin.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\net45\Google.Apis.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\net45\Google.Apis.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\net45\Google.Apis.PlatformServices.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\net45\Google.Apis.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\netstandard1.3\Google.Apis.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\netstandard1.3\Google.Apis.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\netstandard1.3\Google.Apis.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\netstandard2.0\Google.Apis.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\netstandard2.0\Google.Apis.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.1.38.0\lib\netstandard2.0\Google.Apis.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\net45\Google.Apis.Auth.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\net45\Google.Apis.Auth.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\net45\Google.Apis.Auth.PlatformServices.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\net45\Google.Apis.Auth.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard1.3\Google.Apis.Auth.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard1.3\Google.Apis.Auth.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard1.3\Google.Apis.Auth.PlatformServices.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard1.3\Google.Apis.Auth.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard2.0\Google.Apis.Auth.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard2.0\Google.Apis.Auth.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard2.0\Google.Apis.Auth.PlatformServices.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\lib\netstandard2.0\Google.Apis.Auth.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\net45\Google.Apis.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\net45\Google.Apis.Core.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\net45\Google.Apis.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\netstandard1.3\Google.Apis.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\netstandard1.3\Google.Apis.Core.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\netstandard1.3\Google.Apis.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\netstandard2.0\Google.Apis.Core.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\netstandard2.0\Google.Apis.Core.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\lib\netstandard2.0\Google.Apis.Core.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\net40\Google.Apis.Drive.v3.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\net40\Google.Apis.Drive.v3.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\net40\Google.Apis.Drive.v3.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\net45\Google.Apis.Drive.v3.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\net45\Google.Apis.Drive.v3.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\net45\Google.Apis.Drive.v3.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard1.0\Google.Apis.Drive.v3.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard1.0\Google.Apis.Drive.v3.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard1.0\Google.Apis.Drive.v3.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard1.3\Google.Apis.Drive.v3.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard1.3\Google.Apis.Drive.v3.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard1.3\Google.Apis.Drive.v3.xml" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard2.0\Google.Apis.Drive.v3.dll" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard2.0\Google.Apis.Drive.v3.pdb" />
+    <Content Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\lib\netstandard2.0\Google.Apis.Drive.v3.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\portable-net40+sl5+win8+wpa81+wp8\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\portable-net40+sl5+win8+wpa81+wp8\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.xml" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\lib\net45\TechTalk.SpecFlow.dll" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\lib\net45\TechTalk.SpecFlow.pdb" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\lib\netstandard2.0\TechTalk.SpecFlow.dll" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\lib\netstandard2.0\TechTalk.SpecFlow.pdb" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\LICENSE.txt" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\Licenses\BoDi-LICENSE-Apache2.txt" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\Licenses\Gherkin-LICENSE-MIT.txt" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.3.0.220\Licenses\System.ValueTuple-LICENSE-MIT.txt" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\build\net471\TechTalk.SpecFlow.MSTest.Generator.SpecFlowPlugin.dll" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\build\net471\TechTalk.SpecFlow.MSTest.Generator.SpecFlowPlugin.pdb" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\build\netstandard2.0\TechTalk.SpecFlow.MSTest.Generator.SpecFlowPlugin.dll" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\build\netstandard2.0\TechTalk.SpecFlow.MSTest.Generator.SpecFlowPlugin.pdb" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\lib\net45\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.dll" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\lib\net45\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.pdb" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\lib\netstandard2.0\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.dll" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\lib\netstandard2.0\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.pdb" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\LICENSE.txt" />
+    <Content Include="SyncDrvStrm\packages\SpecFlow.SharedSteps.2.0.1\lib\net45\SpecFlowSharedSteps.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\dotnet_library_license.txt" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\netcore50\System.Reflection.Emit.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\netstandard1.3\System.Reflection.Emit.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\de\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\es\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\fr\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\it\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\ja\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\ko\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\ru\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\System.Reflection.Emit.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\zh-hans\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\netstandard1.1\zh-hant\System.Reflection.Emit.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\dotnet_library_license.txt" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\netcore50\System.Reflection.Emit.Lightweight.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\netstandard1.3\System.Reflection.Emit.Lightweight.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\de\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\es\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\fr\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\it\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\ja\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\ko\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\ru\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\System.Reflection.Emit.Lightweight.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\zh-hans\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\netstandard1.0\zh-hant\System.Reflection.Emit.Lightweight.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard1.0\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard1.0\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\LICENSE.TXT" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\useSharedDesignerContext.txt" />
+    <Content Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\version.txt" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\LICENSE.TXT" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\net461\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\net461\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\net47\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\net47\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\portable-net40+sl4+win8+wp8\System.ValueTuple.dll" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\portable-net40+sl4+win8+wp8\System.ValueTuple.xml" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\useSharedDesignerContext.txt" />
+    <Content Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\version.txt" />
+    <Content Include="SyncDrvStrm\packages\Utf8Json.1.3.7\lib\net45\Utf8Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Utf8Json.1.3.7\lib\net45\Utf8Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Utf8Json.1.3.7\lib\net47\Utf8Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Utf8Json.1.3.7\lib\net47\Utf8Json.xml" />
+    <Content Include="SyncDrvStrm\packages\Utf8Json.1.3.7\lib\netstandard2.0\Utf8Json.dll" />
+    <Content Include="SyncDrvStrm\packages\Utf8Json.1.3.7\lib\netstandard2.0\Utf8Json.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\COMMIT_EDITMSG" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\d" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\d" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\logs\refs\remotes\origin\master" />
+    <None Include=".git\objects\02\b89bd31daa2a0ad8d26c4af8d8e16899e10db4" />
+    <None Include=".git\objects\03\a820eb818f63a31e72466679b370a4749b0868" />
+    <None Include=".git\objects\04\48f4c1593e565b2dd6728facec2e69626d3321" />
+    <None Include=".git\objects\07\02c4206152551bc0604ac37320e4ea342e9a24" />
+    <None Include=".git\objects\07\e66beb116d177222c768f524e4461962cb78d9" />
+    <None Include=".git\objects\09\53c728707b5b12dc650bb867d9f7877b840808" />
+    <None Include=".git\objects\0c\7e9bded430f89b6b59178bee1be614d9cf2ba1" />
+    <None Include=".git\objects\0f\021aafbb46c74052df1edfba73d96ceb834257" />
+    <None Include=".git\objects\0f\aeb61b599b01252b9cff2689523c33ebd4f3d1" />
+    <None Include=".git\objects\16\05015f8a999288464b57aa4afc51ebf42fadb6" />
+    <None Include=".git\objects\1a\2ecbc81e38a6968c30bb23f34c64808508f750" />
+    <None Include=".git\objects\1a\f7de150c99c12dd67a509fe57c10d63e4eeb04" />
+    <None Include=".git\objects\1b\dbd7b33b6c4226563a4863779f3d39d36180f5" />
+    <None Include=".git\objects\1e\2dabe7272277f94d3699cae82fc690d2504420" />
+    <None Include=".git\objects\1f\bbe48dc22bac96808fa4610b42d6cc4bd4855c" />
+    <None Include=".git\objects\20\5e64964de999a9475b1ae5ba5a62df9e56b1d5" />
+    <None Include=".git\objects\27\056fd18c54580a018909e7c0b9514cb81f6cca" />
+    <None Include=".git\objects\2e\aef663a5d3ec1456ee1047d03fe3acba64996a" />
+    <None Include=".git\objects\2e\dca39a36e1ff43fc1f5edf1c03bb742e001e89" />
+    <None Include=".git\objects\3a\5ffc353cfcf1d760e14c0e7a2a438d4db4e659" />
+    <None Include=".git\objects\3c\4efe206bd0e7230ad0ae8396a3c883c8207906" />
+    <None Include=".git\objects\3d\3da96c55718ef65c2dcf4e71eb07216b054ce9" />
+    <None Include=".git\objects\3f\95e1be72a84be6d55eed175a8642a501e96562" />
+    <None Include=".git\objects\44\76384aee14fcab8b707f2ae2c02f0f53793c41" />
+    <None Include=".git\objects\46\efb4bae2d8039bc180ae89764b0d742e1bad37" />
+    <None Include=".git\objects\48\ab4fb552e7eeb847abee6d955122695a39502c" />
+    <None Include=".git\objects\50\31824b6e4cde1cf72b42dbf1533b877cd97a8a" />
+    <None Include=".git\objects\51\db9d2a1bd83fbc265d1fb54410381566f2bb2e" />
+    <None Include=".git\objects\52\cfebc648d66cb738e414fb05adcbf5f0a082d9" />
+    <None Include=".git\objects\59\fd3fcb12ed9448450b699d5f0f9320ebcb5921" />
+    <None Include=".git\objects\5f\4b7e00eea5b55002c8ea74b230ce9683442fba" />
+    <None Include=".git\objects\64\46b396ba9bd0572f4020ba8fad78ee7f2d765e" />
+    <None Include=".git\objects\68\c1b6370fbb6164440f5fab95bf3f385ffc6bf9" />
+    <None Include=".git\objects\6f\3ce2e902ed95b0b5d237529842957940d0f319" />
+    <None Include=".git\objects\75\1782ef9e4543733d81e2592141511bf16879b9" />
+    <None Include=".git\objects\7a\db93c0e78ec38bb827eb0b960d96f8a0d2942c" />
+    <None Include=".git\objects\7f\8bbfa3b84aa17f18fcb94634f33049d514f93e" />
+    <None Include=".git\objects\82\5aac028f99db2cd47b93bd677bc111f1370a33" />
+    <None Include=".git\objects\88\27fd4746df75daf9467d4e6d6b22d150c8468a" />
+    <None Include=".git\objects\8b\137891791fe96927ad78e64b0aad7bded08bdc" />
+    <None Include=".git\objects\8f\fb998a75b315fd226638bcc208fc69d74fa5be" />
+    <None Include=".git\objects\93\f4c809e8ecde5d8c01850a01948efb1c0ccbb4" />
+    <None Include=".git\objects\96\20db38372e88ddb7d05bb1b925415901d1a51c" />
+    <None Include=".git\objects\98\01ab0c95210ce73cb606fd721e01e1ef255f3a" />
+    <None Include=".git\objects\a6\7d3c35d6eb86641b2d488f62186eb230fcdc8c" />
+    <None Include=".git\objects\aa\4028e23eec064d0fab654debcb462a1b388231" />
+    <None Include=".git\objects\aa\4e8fb9943feac4df1f0c6cc8b49d9d9c077572" />
+    <None Include=".git\objects\b7\d1fade50dae5f642074da2e3c9ece2d1ecf9f1" />
+    <None Include=".git\objects\b8\6fbcec9537d7bb8d201bec50befea77f20fe21" />
+    <None Include=".git\objects\b8\f968e3ee64b7a1c96baf281555ccea4fabdd5d" />
+    <None Include=".git\objects\b9\03a4ec50f364fafee86ee0f38744a8eb5e71e4" />
+    <None Include=".git\objects\ba\a3e57c5a96d7faee625507164a6e0fcfacded8" />
+    <None Include=".git\objects\be\7ea82735eb0ffcee39d1991f3aef2fc3da7f9f" />
+    <None Include=".git\objects\c4\eb4a9a9923e05296b154fee91362b9a103671a" />
+    <None Include=".git\objects\c8\9fb5f2ce4261ffaed08b87a14338b43f3a31d5" />
+    <None Include=".git\objects\ca\75ca9ffbbdd6ba823a063908c09810ab087aee" />
+    <None Include=".git\objects\cd\965e7bc330fb6a792f04b98bdafae67dae6c05" />
+    <None Include=".git\objects\cf\578ccc0c869b780577924a95f78a8dc5b5d20f" />
+    <None Include=".git\objects\cf\b997ba98d9213542ead122f7de71a692936645" />
+    <None Include=".git\objects\d1\f00aea32ca2edb1130ee9fbeefbed1b2c19131" />
+    <None Include=".git\objects\d3\5582a5d2c90a1b373345fd94a83941288411e4" />
+    <None Include=".git\objects\d5\de5646f970c6ab03957efac30a48a099db62db" />
+    <None Include=".git\objects\d7\b7015c2b8d00d55cb2d9d10464a6c4d0691643" />
+    <None Include=".git\objects\d8\db6423a57d5698723163fa0fcb8526c83078a3" />
+    <None Include=".git\objects\e1\213f2a98a1d9a06bfc640f57faee9cf16fc50c" />
+    <None Include=".git\objects\eb\7ed4098e04d8482304a3b049c6b0cef6b7da57" />
+    <None Include=".git\objects\ee\47308af0c700792d2fdebd09fe6a8afa11d96b" />
+    <None Include=".git\objects\ef\58ce2b64166d6488cd2950696f026d2291f3d3" />
+    <None Include=".git\objects\f3\305d608931f4551f0d2b269dec708edde28c42" />
+    <None Include=".git\objects\fe\c25bb18355bbd8a4db952329cf9ee30aa1cb54" />
+    <None Include=".git\ORIG_HEAD" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\d" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\d" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include=".git\refs\remotes\origin\master" />
+    <None Include=".vs\AsyncDriveStreaming\v16\.suo" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="App.config" />
+    <None Include="DRVS_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="README.md" />
+    <None Include="SyncDrvStrm\App.config" />
+    <None Include="SyncDrvStrm\bin\Debug\credentials.json" />
+    <None Include="SyncDrvStrm\bin\Debug\Freetify.exe.config" />
+    <None Include="SyncDrvStrm\bin\Debug\token.json\Google.Apis.Auth.OAuth2.Responses.TokenResponse-user" />
+    <EmbeddedResource Include="SyncDrvStrm\credentials.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="SyncDrvStrm\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="SyncDrvStrm\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="SyncDrvStrm\obj\Debug\DStrm.csproj.CopyComplete" />
+    <None Include="SyncDrvStrm\obj\Debug\DStrm.csproj.CoreCompileInputs.cache" />
+    <None Include="SyncDrvStrm\obj\Debug\DStrm.csproj.GenerateResource.cache" />
+    <None Include="SyncDrvStrm\obj\Debug\DStrm.csprojAssemblyReference.cache" />
+    <None Include="SyncDrvStrm\obj\Debug\Freetify.exe.config" />
+    <None Include="SyncDrvStrm\packages.config" />
+    <None Include="SyncDrvStrm\packages\BoDi.1.4.1\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\BoDi.1.4.1\BoDi.1.4.1.nupkg" />
+    <None Include="SyncDrvStrm\packages\BoDi.1.4.1\build\_._" />
+    <None Include="SyncDrvStrm\packages\BoDi.1.4.1\content\_._" />
+    <None Include="SyncDrvStrm\packages\BoDi.1.4.1\tools\_._" />
+    <None Include="SyncDrvStrm\packages\Castle.Core.3.2.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Castle.Core.3.2.0\Castle.Core.3.2.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\Gherkin.6.0.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Gherkin.6.0.0\Gherkin.6.0.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.1.38.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.1.38.0\Google.Apis.1.38.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.Auth.1.38.0\Google.Apis.Auth.1.38.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.Core.1.38.0\Google.Apis.Core.1.38.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Google.Apis.Drive.v3.1.38.0.1512\Google.Apis.Drive.v3.1.38.0.1512.nupkg" />
+    <None Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\MSTest.TestFramework.1.3.2\MSTest.TestFramework.1.3.2.nupkg" />
+    <None Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\LICENSE.md" />
+    <None Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\Newtonsoft.Json.10.0.2.nupkg" />
+    <None Include="SyncDrvStrm\packages\Newtonsoft.Json.10.0.2\tools\install.ps1" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.3.0.220\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.3.0.220\Licenses\Newtonsoft.Json-LICENSE-MIT.md" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.3.0.220\SpecFlow.3.0.220.nupkg" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.props" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.targets" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.MsTest.3.0.220\SpecFlow.MsTest.3.0.220.nupkg" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.SharedSteps.2.0.1\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.SharedSteps.2.0.1\contentFiles\any\net45\App.config.transform" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.SharedSteps.2.0.1\content\App.config.transform" />
+    <None Include="SyncDrvStrm\packages\SpecFlow.SharedSteps.2.0.1\SpecFlow.SharedSteps.2.0.1.nupkg" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\MonoAndroid10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\monotouch10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\net45\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\xamarinios10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\xamarinmac20\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\xamarintvos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\lib\xamarinwatchos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\MonoAndroid10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\net45\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\ref\xamarinmac20\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.4.3.0\System.Reflection.Emit.4.3.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\MonoAndroid10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\MonoTouch10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\net45\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\portable-net45+wp8\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\wp80\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\xamarinios10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\xamarinmac20\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\xamarintvos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\lib\xamarinwatchos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\MonoAndroid10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\MonoTouch10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\net45\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\portable-net45+wp8\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\wp80\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\xamarinios10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\xamarinmac20\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\xamarintvos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\ref\xamarinwatchos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\runtimes\aot\lib\netcore50\_._" />
+    <None Include="SyncDrvStrm\packages\System.Reflection.Emit.Lightweight.4.3.0\System.Reflection.Emit.Lightweight.4.3.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\lib\netcoreapp2.0\_._" />
+    <None Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\ref\netcoreapp2.0\_._" />
+    <None Include="SyncDrvStrm\packages\System.Threading.Tasks.Extensions.4.4.0\System.Threading.Tasks.Extensions.4.4.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\MonoAndroid10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\MonoTouch10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\netcoreapp2.0\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\netstandard2.0\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\xamarinios10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\xamarinmac20\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\xamarintvos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\lib\xamarinwatchos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\MonoAndroid10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\MonoTouch10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\netcoreapp2.0\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\netstandard2.0\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\xamarinios10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\xamarinmac20\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\xamarintvos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\ref\xamarinwatchos10\_._" />
+    <None Include="SyncDrvStrm\packages\System.ValueTuple.4.4.0\System.ValueTuple.4.4.0.nupkg" />
+    <None Include="SyncDrvStrm\packages\Utf8Json.1.3.7\.signature.p7s" />
+    <None Include="SyncDrvStrm\packages\Utf8Json.1.3.7\Utf8Json.1.3.7.nupkg" />
+    <None Include="SyncDrvStrm\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SyncDrvStrm\DriveUtils.cs" />
+    <Compile Include="SyncDrvStrm\DStrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyncDrvStrm\DStrm.Designer.cs">
+      <DependentUpon>DStrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyncDrvStrm\Program.cs" />
+    <Compile Include="SyncDrvStrm\Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncDrvStrm\Properties\Resources.Designer.cs" />
+    <Compile Include="SyncDrvStrm\Properties\Settings.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SyncDrvStrm\DStrm.resx">
+      <DependentUpon>DStrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyncDrvStrm\obj\Debug\DStrm.DStrm.resources" />
+    <EmbeddedResource Include="SyncDrvStrm\obj\Debug\Freetify.Properties.Resources.resources" />
+    <EmbeddedResource Include="SyncDrvStrm\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include=".vs\DRVS\v16\" />
+    <Folder Include="SyncDrvStrm\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <Import Project="packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.props'))" />
+    <Error Condition="!Exists('packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.targets'))" />
+  </Target>
+  <Import Project="packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.targets" Condition="Exists('packages\SpecFlow.MsTest.3.0.220\build\SpecFlow.MsTest.targets')" />
+</Project>

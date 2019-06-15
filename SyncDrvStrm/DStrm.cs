@@ -16,7 +16,6 @@ namespace DStrm
 {
     public partial class DStrm : Form
     {
-        private HttpClient _httpClient;
         public DStrm()
         {
             InitializeComponent();

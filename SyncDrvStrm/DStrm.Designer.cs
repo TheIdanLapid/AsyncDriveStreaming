@@ -54,7 +54,7 @@ namespace DStrm
             this.Shuffle.Name = "Shuffle";
             this.Shuffle.Size = new System.Drawing.Size(93, 40);
             this.Shuffle.TabIndex = 2;
-            this.Shuffle.Text = "Shuffle";
+            this.Shuffle.Text = "Random";
             this.Shuffle.UseVisualStyleBackColor = false;
             this.Shuffle.Click += new System.EventHandler(this.Shuffle_Click);
             // 
