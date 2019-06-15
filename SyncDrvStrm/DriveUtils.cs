@@ -12,14 +12,12 @@ namespace DStrm
 {
     static class DriveUtils
     {
-        // If modifying these scopes, delete your previously saved credentials
-        // at ~/.credentials/drive-dotnet-quickstart.json
         private static readonly string[] _scopes = { DriveService.Scope.DriveReadonly };
-        private static string _applicationName = "Drive API .NET Quickstart";
+        private static readonly string _applicationName = "Drive API .NET Quickstart";
         private static UserCredential _credential;
         private static DriveService _driveService;
-        private static readonly string _musicFolderId = "1tJcIK_vp1NZGH_DiccrE1ILzbkAloMbv";
-        private static Random _rnd = new Random();
+        //private static readonly string _musicFolderId = "1tJcIK_vp1NZGH_DiccrE1ILzbkAloMbv";
+        private static readonly Random _rnd = new Random();
         private static List<Google.Apis.Drive.v3.Data.File> _songs = new List<Google.Apis.Drive.v3.Data.File>();
 
         internal static void Auth()
@@ -27,7 +25,7 @@ namespace DStrm
 
 
             using (var stream =
-                new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                new FileStream("SyncDrvStrm\\credentials.json", FileMode.Open, FileAccess.Read))
             {
                 // The file token.json stores the user's access and refresh tokens, and is created
                 // automatically when the authorization flow completes for the first time.
