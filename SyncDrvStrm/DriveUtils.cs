@@ -2,6 +2,7 @@
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using Microsoft.Toolkit.Forms.UI.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +17,6 @@ namespace DStrm
         private static readonly string _applicationName = "Drive API .NET Quickstart";
         private static UserCredential _credential;
         private static DriveService _driveService;
-        //private static readonly string _musicFolderId = "1tJcIK_vp1NZGH_DiccrE1ILzbkAloMbv";
         private static readonly Random _rnd = new Random();
         private static List<Google.Apis.Drive.v3.Data.File> _songs = new List<Google.Apis.Drive.v3.Data.File>();
 
@@ -47,10 +47,10 @@ namespace DStrm
             });
         }
 
-        internal static void PlaySong(WebBrowser wb, Label label)
+        internal static void PlaySong(WebViewCompatible wb, Label label)
         {
             Google.Apis.Drive.v3.Data.File song = GetRandomSong();
-            wb.Url = new Uri(song.WebViewLink);
+            wb.Source = new Uri(song.WebViewLink);
             label.Text = "Playing: " + song.Name;
         }
 
@@ -60,7 +60,7 @@ namespace DStrm
             {
                 FilesResource.ListRequest folderRequest = _driveService.Files.List();
                 // Get a list of folders inside "Music" folder
-                folderRequest.Q = "mimeType = 'application/vnd.google-apps.folder' and parents = '1tJcIK_vp1NZGH_DiccrE1ILzbkAloMbv'";
+                folderRequest.Q = "mimeType = 'application/vnd.google-apps.folder'";
                 IList<Google.Apis.Drive.v3.Data.File> musicFolders = folderRequest.Execute().Files;
                 // Choose a random folder from the list
                 string randomFolder = musicFolders[_rnd.Next(musicFolders.Count)].Id;
@@ -82,7 +82,7 @@ namespace DStrm
 
                 foreach (Google.Apis.Drive.v3.Data.File file in musicFiles)
                 {
-                    if (file.Name.EndsWith(".mp3"))
+                    if (file.Name.EndsWith(".m4a"))
                     {
                         FilesResource.GetRequest getRequest = _driveService.Files.Get(file.Id);
                         getRequest.Fields = "webViewLink, name";

@@ -1,3 +1,5 @@
+using Microsoft.Toolkit.Forms.UI.Controls;
+
 namespace DStrm
 {
     partial class DStrm
@@ -30,7 +32,7 @@ namespace DStrm
         {
             this.debugInstructionsLabel = new System.Windows.Forms.Label();
             this.Shuffle = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webBrowser1 = new WebViewCompatible();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -66,7 +68,6 @@ namespace DStrm
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(356, 66);
             this.webBrowser1.TabIndex = 3;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // button1
             // 
@@ -102,7 +103,7 @@ namespace DStrm
         #endregion
         private System.Windows.Forms.Label debugInstructionsLabel;
         private System.Windows.Forms.Button Shuffle;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private WebView2 webBrowser1;
         private System.Windows.Forms.Button button1;
     }
 }
