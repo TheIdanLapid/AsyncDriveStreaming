@@ -31,6 +31,8 @@ namespace DStrm
         {
             webBrowser1.Focus();
             Thread.Sleep(100);
+            webBrowser1.Focus();
+            Thread.Sleep(100);
             SendKeys.Send("{ENTER}");
         }
 
